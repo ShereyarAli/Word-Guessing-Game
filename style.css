@@ -56,3 +56,30 @@ main{
   border: solid black;
   border-radius: 20px;
 }
+.head{
+  background-color: red;
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+}
+.hangBody{
+  background-color: red;
+  width: 5px;
+  height: 70px;
+}
+.legs{
+  display: flex;
+}
+.hangLeg1{
+  background-color: red;
+  width: 5px;
+  height: 40px;
+  
+  transform: rotate(8deg);
+}
+.hangLeg2{
+  background-color: red;
+  width: 5px;
+  height: 40px;
+  transform: rotate(-10deg);
+}
