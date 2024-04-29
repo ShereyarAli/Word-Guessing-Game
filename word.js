@@ -195,4 +195,8 @@ export let wordList = [
         word: "rain",
         hint: "related to a water"
     },
+    {
+        word: "Pakistan",
+        hint: "A country name"
+    }
 ]
