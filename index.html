@@ -11,8 +11,10 @@
 </head>
 <body>
   <h2>Word Guessing Game</h2>
+  <p class="tries js-tries">Tries:5</p>
   <p id="playText">Click on PLAY</p>
-  <main>
+  <button id="restart" class="restart">Restart</button>
+  <main id="main">
     <div class="yourWord js-your-word">
       <div class="wordCell">T</div>
       <div class="wordCell">I</div>
@@ -24,18 +26,18 @@
     <div>
       
       <p class="js-hint">Hint: Animal</p>
-      <p class="">junk words</p>
+      <p class="junkWords"></p>
       
     </div>
     
   </main>
   <div class="hang">
     <p>HangMan</p>
-    <div class="head"></div>
-    <div class="hangBody"></div>
+    <div id="js-head" class="head"></div>
+    <div id="js-hangbody" class="hangBody"></div>
     <div class="legs">
-      <div class="hangLeg1"></div>
-      <div class="hangLeg2"></div>
+      <div id="js-hangleg1" class="hangLeg1"></div>
+      <div id="js-hangleg2" class="hangLeg2"></div>
     </div>
     
     <div></div>

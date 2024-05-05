@@ -56,12 +56,14 @@ main{
   border-radius: 20px;
 }
 .head{
+  display: none;
   background-color: red;
   width: 30px;
   height: 30px;
   border-radius: 15px;
 }
 .hangBody{
+  display: none;
   background-color: red;
   width: 5px;
   height: 70px;
@@ -70,6 +72,7 @@ main{
   display: flex;
 }
 .hangLeg1{
+  display: none;
   background-color: red;
   width: 5px;
   height: 40px;
@@ -77,6 +80,7 @@ main{
   transform: rotate(8deg);
 }
 .hangLeg2{
+  display: none;
   background-color: red;
   width: 5px;
   height: 40px;
@@ -105,4 +109,21 @@ main{
   padding-inline: 35px;
   background-color: black;
   background-image: linear-gradient(to bottom right,rgb(255, 210, 7), rgb(241, 80, 59)); 
+}
+.tries{
+  position: absolute;
+  top: 5px;
+  left: 35px;
+}
+.restart{
+  display: none;
+  cursor: pointer;
+  color: black;
+  font-size: 15px;
+  background-image: linear-gradient(to bottom right, rgb(241, 80, 59), rgb(255, 210, 7));
+  border: solid black 1.5px;
+  border-radius: 5px;
+  padding-inline: 40px;
+  padding-block: 30px;
+  margin-top: 20px;
 }

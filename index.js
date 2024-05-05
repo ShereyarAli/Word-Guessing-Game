@@ -1,15 +1,24 @@
 import {wordList} from "./word.js";
 
-let guessWord, html ='', word, hintWord;
+let guessWord, html ='', word, hintWord, junk = [], tries = 5;
 let yourWord = document.querySelector('.js-your-word');
 let hint = document.querySelector('.js-hint');
 let clickToPlay = document.getElementById('clickToPlay');
-let playText = document.getElementById('playText')
+let playText = document.getElementById('playText');
+let junkWords = document.querySelector('.junkWords');
+let userTries = document.querySelector('.tries');
+let main = document.getElementById('main');
+let hangHead = document.getElementById('js-head')
+let hangBody = document.getElementById('js-hangbody')
+let hangleg1 = document.getElementById('js-hangleg1')
+let hangleg2 = document.getElementById('js-hangleg2')
+let restart = document.getElementById('restart')
+
+guessWord = Math.floor(Math.random() * wordList.length);
+word = wordList[guessWord].word;
 
 console.log(wordList.length)
 const wordToGuess = () => {
-  guessWord = Math.floor(Math.random() * wordList.length);
-  word = wordList[guessWord].word;
   hint.innerHTML = `Hint: ${wordList[guessWord].hint}`
   hintWord = Math.floor(Math.random() * word.length);
   for(let i = 0; i < word.length; i++){
@@ -27,6 +36,33 @@ const wordToGuess = () => {
 const userInput = () => {
  document.addEventListener('keydown', event => {
   console.log(event.key)
+  let found = false;
+  for (let i = 0; i < word.length; i++) {
+    if (event.key === word[i]) {
+      document.getElementById(`wordCell${i}`).textContent = `${word[i]}`;
+      found = true;
+      break;
+    }
+  }
+  if (!found) {
+    if (!junk.includes(event.key)) {
+      junk.push(event.key);
+      junkWords.innerHTML = junk;
+      userTries.innerHTML = `Tries:${tries--}`
+      if(tries === 3){hangHead.style.display = 'block'}
+      if(tries === 2){hangBody.style.display = 'block'}
+      if(tries === 1){hangleg1.style.display = 'block'}
+      if(tries === 0){hangleg2.style.display = 'block'}
+      if(tries === -1){
+        main.style.display = 'none'
+        playText.innerText = ''
+        restart.style.display = 'block'
+        restart.addEventListener('click', ()=>{
+          location.reload();
+        })
+      }
+    }
+  }
  })
 playText.innerText = 'Use Keyboard To Enter Words';
   
