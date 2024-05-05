@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login Form</title>
+</head>
+<body>
+<h2>Login</h2>
+<form>
+  <label for="useremail">User Email:</label><br>
+  <input type="text" id="useremail" name="useremail" required><br>
+  <label for="password">Password:</label><br>
+  <input type="password" id="password" name="password" required><br>
+  <input class="submit" type="submit" value="Login">
+</form>
+<script type="module" defer>
+    import { conn } from "./connection.js";
+    let login = document.querySelector('.submit');
+    login.addEventListener('click', () => {
+    conn.query('SELECT * FROM userdata.user', function (error, rows, fields) {
+     if (error) throw error;
+     else{
+            let email = document.getElementById('useremail').value;
+            let password = document.getElementById('password').value;
+            var flag = 0;
+            for (let i = 0; i < rows.length; i++) {
+                if (email === rows[i].user_email && password === rows[i].user_pass){
+                document.location.href = 'index.html';
+                flag = 1;
+            }
+        }
+            if (flag === 0){
+                console.log('invalidddd')
+            }
+        }
+    })
+})
+</script>
+</body>
+</html>

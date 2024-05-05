@@ -3,7 +3,7 @@ import {wordList} from "./word.js";
 let guessWord, html ='', word, hintWord;
 let yourWord = document.querySelector('.js-your-word');
 let hint = document.querySelector('.js-hint');
-let clickToPlay = document.getElementById('js-click-to-play');
+let clickToPlay = document.getElementById('clickToPlay');
 let playText = document.getElementById('playText')
 
 console.log(wordList.length)
@@ -28,13 +28,13 @@ const userInput = () => {
  document.addEventListener('keydown', event => {
   console.log(event.key)
  })
-playText.style.display = 'block';
+playText.innerText = 'Use Keyboard To Enter Words';
   
 }
 wordToGuess();
 
 clickToPlay.addEventListener('click', ()=>{
-  userInput()
+  userInput();
 })
   
 

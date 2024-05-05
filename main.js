@@ -9,9 +9,15 @@ const url = require("url");
 let win;
 
 function createWindow(){
-  win = new browserWindow();
+  win = new browserWindow({
+    webPreferences:{
+      nodeIntegration:true,
+      contextIsolation:false,
+      enableRemoteModule: true,
+    }
+  });
   win.loadURL(url.format({
-    pathname: path.join(__dirname, 'index.html'),
+    pathname: path.join(__dirname, 'register.html'),
     protocol: 'file',
     slashes: true
   }));
@@ -21,5 +27,4 @@ function createWindow(){
     win = null;
   })
 }
-
 app.on('ready', createWindow);

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registration Form</title>
+</head>
+<body>
+<h2>Register</h2>
+<form >
+  <label for="user">Username:</label><br>
+  <input type="text" id="username" name="username" required><br>
+  <label for="mail">Email:</label><br>
+  <input type="email" id="email" name="email" required><br>
+  <label for="pass">Password:</label><br>
+  <input type="password" id="password" name="password" required><br>
+  <input type="submit" value="Submit">
+  <p>Already Registered then 
+    <a href="login.html">Sign in</a>
+  </p>
+</form>
+
+<script type="module" defer >
+ import { conn } from "./connection.js";
+
+document.querySelector('form').addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  let username = document.getElementById('username').value;
+  let email = document.getElementById('email').value;
+  let password = document.getElementById('password').value;
+
+  let query = "INSERT INTO user(user_name, user_email, user_pass) VALUES('" + username + "', '" + email + "','" + password + "')";
+  
+  conn.query(query, function(error, result) {
+    if (error) {
+      console.log(error);
+    }
+    else {
+      console.log("connection created");
+      console.log(username, email, password);
+      window.location.href = "login.html";
+    }
+})
+})
+</script>
+</body>
+</html>
