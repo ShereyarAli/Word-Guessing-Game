@@ -13,6 +13,7 @@
   <input type="text" id="useremail" name="useremail" required><br>
   <label for="password">Password:</label><br>
   <input type="password" id="password" name="password" required><br>
+  <p id="invalidError"></p>
   <input class="submit" type="submit" value="Login">
 </form>
 <script type="module" defer>
@@ -32,6 +33,7 @@
             }
         }
             if (flag === 0){
+                document.getElementById('invalidError').innerHTML = 'Something Went Wrong! TRY AGAIN';
                 console.log('invalidddd')
             }
         }
